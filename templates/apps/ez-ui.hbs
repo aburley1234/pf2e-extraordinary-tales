@@ -91,8 +91,8 @@
 
                 <div data-actor="{{this.id}}" data-token="{{this.token.id}}" data-key="perception">
                     <span style="letter-spacing:-0.05em">Perception</span>
-                    {{this.system.attributes.perception.value}}
-                    <span style="letter-spacing:-0.05em;font-size:90%;opacity:0.75">({{add this.system.attributes.perception.value 10}})</span>
+                    {{this.system.perception.value}}
+                    <span style="letter-spacing:-0.05em;font-size:90%;opacity:0.75">({{add this.system.perception.value 10}})</span>
                 </div>
 
         <div style="height:2px"></div>
@@ -230,14 +230,14 @@
         {{#each this.groups}}
         {{#if this.active.length}}
         <div style="letter-spacing:-0.05em;font-size:85%">
-            {{#if this.isCantrip}}
+            {{#if (eq this.id "cantrips")}}
             Cantrip
             {{else}}
-            Level {{this.level}}
+            Level {{this.id}}
             {{/if}}
         </div>
         {{#each this.active}}
-        <div data-actor="{{../../../this.id}}" data-token="{{../../../this.token.id}}" data-spell="{{this.spell.id}}" data-slot="{{this.spell.id}}" {{#if ../../this.isPrepared}}data-slot-id="{{@key}}"{{/if}} data-slot-level="{{../this.level}}" data-cast-level="{{chatData.castLevel}}" data-entry="{{../../this.id}}">
+        <div data-actor="{{../../../this.id}}" data-token="{{../../../this.token.id}}" data-spell="{{this.spell.id}}" data-slot="{{this.spell.id}}" {{#if ../../this.isPrepared}}data-slot-id="{{@key}}"{{/if}} data-slot-level="{{../this.id}}" data-cast-level="{{chatData.castLevel}}" data-entry="{{../../this.id}}">
             {{{actionGlyph this.spell.system.time.value}}} <span style="letter-spacing:-0.05em">{{this.spell.name}}</span>
         </div>
         {{/each}}
@@ -350,7 +350,7 @@
                 {{this.attributes.classOrSpellDC.value}}
             </div>
             <div style="flex:0 0 1.25rem" >
-                {{this.attributes.perception.value}}
+                {{this.perception.value}}
             </div>
             <div style="flex:0 0 1.25rem" >
                 {{this.saves.fortitude.check.mod}}

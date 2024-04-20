@@ -42,7 +42,7 @@
 
     <div>
         <span style="font-size:85%; opacity: 0.75"><i class="fa-solid fa-fw fa-eye"></i></span>
-        {{actor.attributes.perception.value}}
+        {{actor.perception.value}}
 
         <span style="font-size:85%; opacity: 0.75"><i class="fa-solid fa-fw fa-turn-up"></i></span>
         {{actor.level}}
@@ -131,20 +131,20 @@
 
 
 
-{{#if actor.system.traits.languages.value}}
+{{#if actor.system.details.languages.value}}
     <div >
         <span style="font-size:85%; opacity:0.75;"><i class="fa-solid fa-fw fa-comment"></i></span>
-        {{#each actor.system.traits.languages.value}}
+        {{#each actor.system.details.languages.value}}
         <span style="font-size:75%;letter-spacing:-0.05em">{{this}}</span>
         {{/each}}
         </div>
 <div style="height:3px"></div>
     {{/if}}
 
-{{#if actor.system.traits.senses.value}}
+{{#if actor.system.perception.senses.value}}
 <div> 
         <span style="font-size:85%; opacity:0.75"><i class="fa-regular fa-magnifying-glass-plus"></i></span>
-        <span style="font-size:75%;letter-spacing:-0.05em"> {{actor.system.traits.senses.value}}</span>
+        <span style="font-size:75%;letter-spacing:-0.05em"> {{actor.system.perception.senses.value}}</span>
        
 </div>
 <div style="height:3px"></div>
