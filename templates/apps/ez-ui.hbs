@@ -169,15 +169,17 @@
                 <div style="flex:3;max-height:450px;overflow-y:auto;scrollbar-width: thin;" class="hover-gold ez-ui-button ez-ui-scrolling">
         {{#unless @root.config.hideSections.toggleValues}}
                     {{#each this.synthetics.toggles}}
-                        <div data-actor="{{../this.id}}" data-token="{{../this.token.id}}" data-toggle="{{this.itemId}}">
-                        {{#if this.checked}}
-                        [&check;]
-                        {{else}}
-                        [<span style="opacity:0">&check;</span>]
-                        {{/if}}
-                        <span style="letter-spacing:-0.05em">{{this.label}}</span>
+                        {{#each this}}
+                            <div data-actor="{{../../this.id}}" data-token="{{../../this.token.id}}" data-toggle="{{this.itemId}}">
+                            {{#if this.checked}}
+                            [&check;]
+                            {{else}}
+                            [<span style="opacity:0">&check;</span>]
+                            {{/if}}
+                            <span style="letter-spacing:-0.05em">{{this.label}}</span>
 
-                        </div>
+                            </div>
+                        {{/each}}
                     {{/each}}
         {{/unless}}
 
